@@ -1,0 +1,59 @@
+{
+  "skill": "media-script-review",
+  "date": "2026-10-31",
+  "baseline_commit": "a6a35f0ea6e9e591df7fb6ce67752b98c755ac25",
+  "mode": "bundled-local-default-optional-wiki",
+  "validation": {
+    "format_exit": 0,
+    "offline_commands": [],
+    "unit_tests_passed": null,
+    "unit_tests_failed": null,
+    "independent_review": "passed",
+    "synthetic_trial": "completed",
+    "trial_summary": "交付指向原句的诊断和验收条件，识别“两区”误写“两书架”、无据效率和效果保证；没有擅自改写全文。",
+    "external_services_executed": false
+  },
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "b4260ef4e7955a09c6864754fa9b29f37d91f8fab551580224062574806effc5"
+    },
+    {
+      "path": "README.md",
+      "sha256": "3065401f776951eb5b89db6a73ec740aaee0d467031c680e029a2b4a7013e3b8"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "7054d7669ad1ca0ab07a3ca7303afe08ef2aff283c9a93d79ab5ffcd8933698b"
+    },
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "7887b55f87131f8d52b0202db32e902659005697e73ee83ebff81a8f1bcb2c58"
+    },
+    {
+      "path": "docs/portability-validation.md",
+      "sha256": "c1e79af034ec6b9c3f3a32fbe811f9dc154505981a8cc620ea1021ef0f3a049a"
+    },
+    {
+      "path": "docs/upload-snapshot.json",
+      "sha256": "e6d1ee8a0e41c46180485245ea2f3e8d158e6a943bb337eb5503a652b7501c5f"
+    },
+    {
+      "path": "examples/first-run-result.md",
+      "sha256": "6cbee05cfac4d7bee124e2615c8dcc732eff8aa8ebbfb35e342944bbc92cc38e"
+    },
+    {
+      "path": "examples/first-run.md",
+      "sha256": "b013c460949fa430033f472f134ab58f4df1805d4a2c00d77d02a35998ade1ae"
+    },
+    {
+      "path": "references/knowledge-base.md",
+      "sha256": "12669c605f1e5b1919190720992753d5bd5530ab8de661386887fb60abf842eb"
+    },
+    {
+      "path": "references/rubric.md",
+      "sha256": "045e6d87dae28d6f90018b71ac68c7b7a4c4f6483dee87ced1b2f73f42b77b38"
+    }
+  ],
+  "manifest_scope": "All distributed files except this manifest; Git commit identifies the complete version."
+}

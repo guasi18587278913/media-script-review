@@ -1,31 +1,55 @@
 # 自媒体审稿（media-script-review）
 
-审查现有脚本和文案，定位首要问题，给出指向具体原句的修改建议及复检标准。
+定位脚本和文案的首要问题，给出指向原句的修改建议与复检标准。
 
-本仓库包含完整技能入口及所需的本地脚本和参考文件。使用流程从 [SKILL.md](SKILL.md) 开始。
+随包有内置审稿标准，可直接审稿。只要诊断时不擅自重写全文，也不承诺真实流量。
 
-## 获取与使用
+完整工作流程见 [SKILL.md](SKILL.md)。
+
+## 安装
+
+需要能读取技能目录的 AI 客户端；GitHub 页面本身不会运行技能。下面命令用于 macOS/Linux 终端，二选一：
 
 ```bash
-git clone https://github.com/guasi18587278913/media-script-review.git
+# Codex
+mkdir -p ~/.agents/skills
+git clone https://github.com/guasi18587278913/media-script-review.git ~/.agents/skills/media-script-review
 ```
 
-仓库根目录就是技能目录。将整个目录放入所用客户端的技能目录；保留目录结构，不只复制 SKILL.md。已有同名技能时，先检查本地修改再合并。
+```bash
+# Claude Code
+mkdir -p ~/.claude/skills
+git clone https://github.com/guasi18587278913/media-script-review.git ~/.claude/skills/media-script-review
+```
 
-调用示例：`用 media-script-review，根据我提供的材料完成自媒体审稿任务。`
+也可在 GitHub 点击 **Code → Download ZIP**，解压后把包含 `SKILL.md` 的整份目录放到客户端的技能目录，目录名改为 `media-script-review`。不要只复制入口文件。已有同名目录时先检查本地修改，不直接覆盖；更新用 `git pull --ff-only`，有冲突先处理。客户端未发现技能时重启后再试。
 
-## 运行条件
+路径依据：[Codex 官方说明](https://learn.chatgpt.com/docs/build-skills)、[Claude Code 官方说明](https://code.claude.com/docs/en/skills)。这些是本机客户端安装方式，不代表自动同步到网页端或云端会话。
 
-完整 Wiki 方法读取需要自行配置 gbrain_sc_media 或 sc-media-kb 只读 MCP。无知识库连接时遵循 SKILL.md 的降级说明，不声称已完成实时方法核验。
+## 第一次使用
 
-脚本（如有）使用 Python 3；具体命令及可选依赖以技能正文、脚本帮助和参考文档为准。仓库不包含私有知识库、API 密钥、登录态或本次创作任务的数据。
+安装后，在客户端里输入下面的话，再附上自己的材料；也可先用 [合成示例](examples/first-run.md)：
 
-## 文件与验证
+```text
+用 $media-script-review，审查下面这段稿子，指出最值得保留的地方和首要问题，建议指到原句，先不要改全文。
+```
 
-技能内容包括：`SKILL.md`, `agents`, `references`。
+Codex 可显式使用 `$skill-name`，Claude Code 可用 `/media-script-review` 或直接说明技能名。收到的材料、快照来源和外部审查状态会分别说明；不会把缺资料当成已经查完。
 
-[本次上传记录](docs/upload-snapshot.json) 保存所包含源文件的 SHA-256 和排除项。完整性检查只能证明文件、索引或脚本契约符合检查范围，不能证明写作质量、用户采用或传播效果。
+## 资料来源与连接
 
-## 来源与边界
+默认读仓库内完整方法或用户明确提供的资料，不自动连接作者的私人 Wiki。方法中的来源 slug 是出处标识，不是可公开访问的网址。只有使用者已经配置并选择自己的只读知识库，才核对在线版本；没有连接时继续做本地范围内能完成的工作，缺原文就明确说明，不凭标题补写。
 
-方法快照、课程与书籍引文保留原出处。本仓库未向第三方资料授予新的转载许可，未添加统一开源许可证。使用者需配置自己的资料源与服务，并按各技能的范围和授权要求执行；上传技能不等于授权付费采集或外发私人材料。
+公开内容限于本仓库的技能指令、辅助脚本、选定方法资料及出处记录；不包含整套 Wiki、私人阅读库、账号密钥或个人任务产物。方法中的第三方引文与例子保留原归属，不转成使用者亲历，也不因仓库公开就额外授予第三方内容转载许可；本仓库没有统一开源许可证。
+
+把自己的资料和任务结果放在仓库外的目录。技能不自动发布、发送消息、购买服务或修改知识库。
+
+## 可选能力与运行条件
+
+本技能是文字指令和方法资料，无必须运行的 Python 脚本。AI 客户端读取本地文件后即可按流程处理用户文字。
+
+## 验证与版本
+
+本次独立使用适配的范围和结果见 [发布验证](docs/portability-validation.md)。原 [上传快照](docs/upload-snapshot.json) 记录第一次导入的来源指纹；它是历史记录，不声称当前修改版仍逐字一致。
+
+文件完整性、脚本测试、合成任务试用和真实用户效果是不同层级；本仓库不以静态检查代替写作质量或平台表现验证。
