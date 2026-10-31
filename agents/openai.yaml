@@ -1,0 +1,4 @@
+interface:
+  display_name: "自媒体审稿"
+  short_description: "审查现有自媒体脚本，定位首要问题并给出逐句改法与验收标准"
+  default_prompt: "用 $media-script-review 审查这篇自媒体脚本，先给首要问题和具体修改建议。"
